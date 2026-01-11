@@ -1,6 +1,6 @@
 terraform {
   cloud {
-    organization = "YOUR_HCP_ORG"
+    organization = "Riddhi-test"
 
     workspaces {
       name = "github-branch-rules"
