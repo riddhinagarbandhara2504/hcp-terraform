@@ -1,6 +1,3 @@
-data "github_repository" "test" {
-  full_name = "Riddhi-test/MyJavaProject"
-}
 
 resource "github_repository" "repos" {
   for_each               = var.repositories
