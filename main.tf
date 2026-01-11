@@ -1,6 +1,3 @@
-
-
-
 resource "github_repository" "repos" {
   for_each               = var.repositories
   name                   = each.value
@@ -8,8 +5,9 @@ resource "github_repository" "repos" {
 }
 
 resource "github_repository_ruleset" "branch_naming" {
+  for_each    = var.repositories
   name        = "jira-branch-naming"
-  repository  = github_repository.repo.name
+  repository  = github_repository.repos[each.key].name
   target      = "branch"
   enforcement = "active"
 
@@ -17,8 +15,8 @@ resource "github_repository_ruleset" "branch_naming" {
     ref_name {
       include = ["refs/heads/jira-*"]
       exclude = [
-        "refs/tags/*",          # Disallow tags
-        "refs/heads/*v*.*.*",   # Disallow semantic version-like names
+        "refs/tags/*",
+        "refs/heads/*v*.*.*",
         "refs/heads/*v*.*",
         "refs/heads/*[0-9].[0-9]*"
       ]
