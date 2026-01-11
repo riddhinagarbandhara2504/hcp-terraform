@@ -15,3 +15,8 @@ variable "repository_name" {
   type        = string
   default = "myFirstProject"
 }
+
+variable "repositories" {
+  type = set(string)
+  default = [ "myFirstProject", "MyJavaProject" ]
+}
