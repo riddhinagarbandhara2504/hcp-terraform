@@ -8,7 +8,7 @@ variable "github_token" {
 variable "github_owner" {
   description = "GitHub organization or user"
   type        = string
-  default = "Riddhi"
+  default = "riddhinagarbandhara2504"
 }
 
 variable "repository_name" {
