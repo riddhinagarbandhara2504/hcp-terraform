@@ -1,9 +1,9 @@
 
-resource "github_repository" "repos" {
-  for_each               = var.repositories
-  name                   = each.value
-  delete_branch_on_merge = true
-}
+# resource "github_repository" "repos" {
+#   for_each               = var.repositories
+#   name                   = each.value
+#   delete_branch_on_merge = true
+# }
 
 resource "github_repository_ruleset" "branch_naming" {
   for_each    = var.repositories
