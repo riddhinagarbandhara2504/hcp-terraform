@@ -1,4 +1,6 @@
 
+provider "github" {}
+
 resource "github_repository" "repos" {
   for_each               = var.repositories
   name                   = each.value
