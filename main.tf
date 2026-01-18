@@ -6,7 +6,7 @@ resource "github_repository" "repos" {
 }
 
 resource "github_repository_ruleset" "branch_naming" {
-  # for_each    = var.repositories
+  for_each    = var.repositories
   name        = "jira-branch-naming"
   repository  = github_repository.repos[each.key].name
   target      = "branch"
